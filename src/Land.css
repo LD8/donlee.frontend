@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  --bg-color: rgb(34, 36, 36);
+  background-color: rgb(0, 63, 0);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-image: url("./assets/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -10;
+  filter: brightness(100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Lobster", cursive;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.links {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-over {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(16, 41, 2, 0.3)
+  );
+  z-index: -9;
+}
+
+@media only screen and (max-width: 800px) {
+  .container,
+  .links {
+    flex-direction: column;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* ------------------------------------- Notes -------- */
 
-.App-link {
-  color: #61dafb;
+/* .bg-over {
+  animation: bg-spin infinite 5s linear;
 }
-
-@keyframes App-logo-spin {
+@keyframes bg-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */

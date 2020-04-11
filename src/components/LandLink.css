@@ -1,0 +1,40 @@
+.land-link {
+  font-size: calc(5vmin + 10px);
+  letter-spacing: 5px;
+  margin: 0 30px;
+  padding: 50px 0;
+  color: white;
+  text-shadow: 0 5px 20px rgb(105, 76, 76);
+  text-decoration: none;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  top: -5vh;
+}
+.popup {
+  font-family: "Raleway", sans-serif;
+  position: absolute;
+  height: 30vh;
+  width: 100vw;
+  color: white;
+  background-color: white;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  background-image: linear-gradient(-70deg, green, orange);
+}
+
+.page {
+  font-family: "Raleway", sans-serif;
+  position: absolute;
+  width: 100vw;
+  height: 80vh;
+  background-color: white;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+@media only screen and (max-width: 800px) {
+  .land-link {
+    text-shadow: 0 5px 20px rgb(110, 62, 62);
+  }
+}
