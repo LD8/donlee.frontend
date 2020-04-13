@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useEffect } from "react";
-import { AboutPage } from "../components/pages/AboutPage";
-import { PortfolioPage } from "../components/pages/PortfolioPage";
-import { BlogPage } from "../components/pages/BlogPage";
+import { AboutPage } from "../components/AboutPage/AboutPage";
+import { PortfolioPage } from "../components/PortfolioPage/PortfolioPage";
+import { BlogPage } from "../components/BlogPage/BlogPage";
 import LandReducer from "./LandReducer";
 
 const initialState = {
