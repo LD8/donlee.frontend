@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./LandLink.css";
-import { GlobalContext } from "../context/GlobalContext";
+import { LandContext } from "../context/LandContext";
 
 export const LandLink = ({ id }) => {
-  const { anyLinkClicked, togglePage, links } = useContext(GlobalContext);
+  const { anyLinkClicked, togglePage, links } = useContext(LandContext);
   const { text, children, showPage } = links.find((i) => i.text === id);
 
   const linkStyle =

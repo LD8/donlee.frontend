@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LandContext } from "../context/LandContext";
 
 export const Quote = () => {
-  return (
+  const { anyLinkClicked } = useContext(LandContext);
+  return !anyLinkClicked ? (
     <div className="quote">
       <p>
         " As one looked at that dead leaf with all its beauty and colour, maybe
@@ -10,5 +12,5 @@ export const Quote = () => {
       </p>
       <p>- Krishnamurti -</p>
     </div>
-  );
+  ) : null;
 };

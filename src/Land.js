@@ -3,21 +3,21 @@ import "./Land.css";
 import { LandLink } from "./components/LandLink";
 import { Quote } from "./components/Quote";
 
-import { GlobalContext, GlobalProvider } from "./context/GlobalContext";
+import { LandContext, LandProvider } from "./context/LandContext";
 
 export const Land = () => {
-  const { links } = useContext(GlobalContext);
+  const { links } = useContext(LandContext);
   return (
-    <div className="container">
-      <GlobalProvider>
+    <LandProvider>
+      <div className="container">
         <div className="links">
           {links.map((link) => (
             <LandLink key={link.text} id={link.text} />
           ))}
         </div>
-      </GlobalProvider>
-      <Quote />
-      <div className="bg-over"></div>
-    </div>
+        <Quote />
+        <div className="bg-over"></div>
+      </div>
+    </LandProvider>
   );
 };

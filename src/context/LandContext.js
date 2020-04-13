@@ -10,17 +10,12 @@ const initialState = {
     { text: "Portfolio", children: <PortfolioPage />, showPage: false },
     { text: "Blog", children: <BlogPage />, showPage: false },
   ],
-  anyLinkClicked() {
-    let result =
-      this.links.filter((i) => i.showPage === true).length > 0 ? true : false;
-    console.log(result);
-    return result;
-  },
+  anyLinkClicked: false,
 };
 
-export const GlobalContext = createContext(initialState);
+export const LandContext = createContext(initialState);
 
-export const GlobalProvider = ({ children }) => {
+export const LandProvider = ({ children }) => {
   const [state, dispatch] = useReducer(LandReducer, initialState);
 
   const togglePage = (id) => dispatch({ type: "TOGGLE_PAGE", payload: id });
@@ -34,7 +29,7 @@ export const GlobalProvider = ({ children }) => {
   }, [state.links]);
 
   return (
-    <GlobalContext.Provider
+    <LandContext.Provider
       value={{
         anyLinkClicked: state.anyLinkClicked,
         links: state.links,
@@ -42,6 +37,6 @@ export const GlobalProvider = ({ children }) => {
       }}
     >
       {children}
-    </GlobalContext.Provider>
+    </LandContext.Provider>
   );
 };

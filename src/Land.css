@@ -3,8 +3,8 @@
 :root {
   --bg-color: rgb(0, 65, 0);
   --text-shadow-color: rgb(58, 50, 1);
-  --bg-shadow-color: rgba(0, 0, 0, 0.9);
-  --page-bg-color: white;
+  --bg-shadow-color: rgba(0, 0, 0, 0.7);
+  --page-bg-color: rgba(255, 255, 255, 0.9);
   --link-text-color: white;
   background-color: var(--bg-color);
   height: 100vh;
