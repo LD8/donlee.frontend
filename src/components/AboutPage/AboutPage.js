@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
+import { LandContext } from "../../context/LandContext";
 import "./AboutPage.css";
 import { Skill } from "./Skill";
-import { Icon } from "./Icon";
 import { AnimateImage } from "./AnimateImage";
-import { LandContext } from "../../context/LandContext";
+import { Icon } from "./Icon";
 import At from "../../assets/svg/At.svg";
 import Github from "../../assets/svg/Github.svg";
 import CV from "../../assets/svg/CV.svg";
@@ -26,9 +26,18 @@ const icons = [
   {
     source: At,
     altText: "Email address: Mail to Don Lee at don_lee@me.com",
+    href: "mailto: don_lee@me.com",
   },
-  { source: CV, altText: "CV/Resumé of Don Lee, click to view" },
-  { source: Github, altText: "Github account of Don Lee" },
+  {
+    source: CV,
+    altText: "CV/Resumé of Don Lee, click to view",
+    href: "mailto: don_lee@me.com",
+  },
+  {
+    source: Github,
+    altText: "Github account of Don Lee",
+    href: "mailto: don_lee@me.com",
+  },
 ];
 
 export const AboutPage = () => {
@@ -48,7 +57,7 @@ export const AboutPage = () => {
         />
         <div className="my-title">
           <h2>Don Lee</h2>
-          <p>Full-stack Software Developer</p>
+          <p>Full-stack Developer</p>
         </div>
         <p>
           Passionate in developing software and web apps that improve our lives
@@ -76,6 +85,7 @@ export const AboutPage = () => {
             imageSource={i.source}
             altText={i.altText}
             index={index}
+            href={i.href}
           />
         ))}
       </section>

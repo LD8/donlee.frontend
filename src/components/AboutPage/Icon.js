@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-export const Icon = ({ showPage, imageSource, altText, index }) => {
+export const Icon = ({ showPage, imageSource, altText, index, href }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const dangleProps = useSpring({
@@ -12,10 +12,10 @@ export const Icon = ({ showPage, imageSource, altText, index }) => {
   });
 
   const hoveredProps = useSpring({
-    transform: isHovered ? "rotateZ(320deg)" : "rotateZ(0)",
+    transform: isHovered ? "rotateZ(360deg)" : "rotateZ(0deg)",
     transformOrigin: "center center",
-    from: { transform: "rotateZ(0)" },
-    config: { mass: 1, tension: 210, friction: 5 },
+    from: { transform: "rotateZ(0deg)" },
+    config: { mass: 1, tension: 150, friction: 10 },
   });
 
   return (
@@ -25,7 +25,9 @@ export const Icon = ({ showPage, imageSource, altText, index }) => {
       onMouseLeave={() => setIsHovered(false)}
       style={hoveredProps}
     >
-      <animated.img src={imageSource} alt={altText} style={dangleProps} />
+      <a href={href}>
+        <animated.img src={imageSource} alt={altText} style={dangleProps} />
+      </a>
     </animated.div>
   );
 };
