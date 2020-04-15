@@ -17,9 +17,9 @@ export const LandLink = ({ id, index }) => {
 
   const linkStyle =
     showPage && anyLinkClicked
-      ? { top: "-40vh", color: "rgba(255, 255, 255, 0.7)" }
+      ? { top: "-40vh", color: "rgba(255, 255, 255, 0.8)" }
       : anyLinkClicked
-      ? { top: "-40vh" }
+      ? { top: "-40vh", fontSize: "calc(2vmin + 10px)" }
       : {};
 
   const pageStyle =

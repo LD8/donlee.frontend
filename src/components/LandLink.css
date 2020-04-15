@@ -13,7 +13,7 @@
   top: -10vh;
 }
 .land-link:hover {
-  transform: translateY(-15px) scaleX(1.2) rotateY(25deg);
+  transform: translateY(-10px) scaleX(1.2) rotateY(25deg);
   color: rgba(255, 255, 255, 0.8);
 }
 .page {
