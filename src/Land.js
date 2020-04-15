@@ -11,8 +11,8 @@ export const Land = () => {
     <LandProvider>
       <div className="container">
         <div className="links">
-          {links.map((link) => (
-            <LandLink key={link.text} id={link.text} />
+          {links.map((link, index) => (
+            <LandLink key={link.text} id={link.text} index={index} />
           ))}
         </div>
         <Quote />

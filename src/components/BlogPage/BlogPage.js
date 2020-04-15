@@ -1,4 +1,5 @@
 import React from 'react'
+import "./BlogPage.css";
 
 export const BlogPage = () => {
     return (

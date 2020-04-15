@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useSpring, animated, config } from "react-spring";
-import { LandContext } from "../../context/LandContext";
 
-export const Skill = ({ pageText, skill, percentage, index }) => {
-  const { links } = useContext(LandContext);
-  const { showPage } = links.find((i) => i.text === pageText);
-
+export const Skill = ({ showPage, skill, percentage, index }) => {
   const numberProps = useSpring({
     to: { number: showPage ? percentage : 0 },
     from: { number: 0 },
