@@ -20,7 +20,7 @@ export const Icon = ({ showPage, imageSource, altText, index, href }) => {
 
   return (
     <animated.div
-      className="contact-icon"
+      className="footer-icon"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={hoveredProps}

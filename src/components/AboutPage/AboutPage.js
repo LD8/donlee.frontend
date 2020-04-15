@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
-import { LandContext } from "../../context/LandContext";
+import React from "react";
 import "./AboutPage.css";
 import { Skill } from "./Skill";
+import { Footer } from "../Footer";
 import { AnimateImage } from "./AnimateImage";
-import { Icon } from "./Icon";
-import At from "../../assets/svg/At.svg";
-import Github from "../../assets/svg/Github.svg";
-import CV from "../../assets/svg/CV.svg";
 import Portrait from "../../assets/img/portrait.png";
 
 const skills = [
@@ -22,30 +18,7 @@ const skills = [
   { skill: "AutoCAD", percentage: 90 },
 ];
 
-const icons = [
-  {
-    source: At,
-    altText: "Email address: Mail to Don Lee at don_lee@me.com",
-    href: "mailto: don_lee@me.com",
-  },
-  {
-    source: CV,
-    altText: "CV/Resumé of Don Lee, click to view",
-    href: "mailto: don_lee@me.com",
-  },
-  {
-    source: Github,
-    altText: "Github account of Don Lee",
-    href: "mailto: don_lee@me.com",
-  },
-];
-
-export const AboutPage = () => {
-  const {
-    links: [{ showPage }, ,],
-  } = useContext(LandContext);
-  // console.log(showPage);
-
+export const AboutPage = ({ showPage }) => {
   return (
     <div className="about-page">
       <section className="manifesto">
@@ -77,18 +50,7 @@ export const AboutPage = () => {
         ))}
       </section>
 
-      <section className="contact">
-        {icons.map((i, index) => (
-          <Icon
-            key={index}
-            showPage={showPage}
-            imageSource={i.source}
-            altText={i.altText}
-            index={index}
-            href={i.href}
-          />
-        ))}
-      </section>
+      <Footer showPage={showPage} />
     </div>
   );
 };

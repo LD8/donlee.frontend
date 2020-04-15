@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, cloneElement } from "react";
 import "./LandLink.css";
 import { LandContext } from "../context/LandContext";
 import { useSpring, animated } from "react-spring";
 
 export const LandLink = ({ id, index }) => {
   const { anyLinkClicked, togglePage, links } = useContext(LandContext);
-  const { text, children, showPage } = links.find((i) => i.text === id);
+  const { text, children, showPage } = links[index];
 
-  const landLinkStyle = useSpring({
+  const landLinkAppear = useSpring({
     from: { opacity: 0, transform: "translateY(-100px)" },
     opacity: 1,
     transform: "translateY(0px)",
@@ -17,19 +17,19 @@ export const LandLink = ({ id, index }) => {
 
   const linkStyle =
     showPage && anyLinkClicked
-      ? { top: "-40vh", color: "rgba(255, 255, 255, 0.8)" }
+      ? { top: "-43vh", color: "rgb(255, 255, 255)" }
       : anyLinkClicked
-      ? { top: "-40vh", fontSize: "calc(2vmin + 10px)" }
+      ? { top: "-43vh", fontSize: "calc(2vmin + 12px)" }
       : {};
 
   const pageStyle =
     showPage && anyLinkClicked
-      ? { transform: "translateY(9vh)", visibility: "visible" }
+      ? { transform: "translateY(7vh)", visibility: "visible" }
       : { transform: "translateY(90vh)", visibility: "hidden" };
 
   return (
     <>
-      <animated.div style={landLinkStyle}>
+      <animated.div style={landLinkAppear}>
         <div
           className="land-link"
           id={id}
@@ -41,7 +41,7 @@ export const LandLink = ({ id, index }) => {
       </animated.div>
 
       <div className="page" style={pageStyle}>
-        {children}
+        {cloneElement(children, { showPage })}
       </div>
     </>
   );

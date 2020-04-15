@@ -10,12 +10,15 @@ export const Land = () => {
   return (
     <LandProvider>
       <div className="container">
+
         <div className="links">
           {links.map((link, index) => (
             <LandLink key={link.text} id={link.text} index={index} />
           ))}
         </div>
+
         <Quote />
+
         <div className="bg-over"></div>
       </div>
     </LandProvider>
