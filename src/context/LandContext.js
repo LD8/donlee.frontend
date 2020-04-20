@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer } from "react";
 import { AboutPage } from "../components/AboutPage/AboutPage";
 import { PortfolioPage } from "../components/PortfolioPage/PortfolioPage";
 import { BlogPage } from "../components/BlogPage/BlogPage";
@@ -19,14 +19,6 @@ export const LandProvider = ({ children }) => {
   const [state, dispatch] = useReducer(LandReducer, initialState);
 
   const togglePage = (id) => dispatch({ type: "TOGGLE_PAGE", payload: id });
-  const toggleLinks = (bool) =>
-    dispatch({ type: "TOGGLE_LINKS", payload: bool });
-
-  useEffect(() => {
-    state.links.filter((i) => i.showPage === true).length > 0
-      ? toggleLinks(true)
-      : toggleLinks(false);
-  }, [state.links]);
 
   return (
     <LandContext.Provider

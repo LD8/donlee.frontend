@@ -13,10 +13,13 @@ const showcases = [
   {
     source: VA,
     altText: "an e-commerce website project",
-  },
-  {
+    labels: ["WebApp", "Python", "Django", "HTML5", "JavaScript", "CSS3", "Bootstrap"],
+},
+{
     source: metta,
-    altText: "A mockup forum for practicing purposes. Use django to build a forum website",
+    altText:
+    "A mockup forum for practicing purposes. Use django to build a forum website",
+    labels: ["WebApp", "Python", "Django", "HTML5", "Bootstrap", "CSS3"],
   },
   {
     source: artist,
@@ -48,9 +51,9 @@ export const PortfolioPage = ({ showPage }) => {
         {showcases.map((showcase, index) => (
           <Showcase
             key={index}
-            showPage={showPage}
             imageSource={showcase.source}
             altText={showcase.altText}
+            labels={showcase.labels}
           />
         ))}
       </section>

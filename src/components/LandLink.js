@@ -1,12 +1,17 @@
-import React, { useContext, cloneElement } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./LandLink.css";
 import { LandContext } from "../context/LandContext";
 import { useSpring, animated } from "react-spring";
-
+import { Link } from "react-router-dom";
+let rc=0
 export const LandLink = ({ id, index }) => {
   const { anyLinkClicked, togglePage, links } = useContext(LandContext);
-  const { text, children, showPage } = links[index];
+  const { showPage } = links[index];
+  const [linkStyle, setLinkStyle] = useState({});
 
+  rc+=1
+  console.log("Land Link Count:", rc)
+  // spring animation when first appear
   const landLinkAppear = useSpring({
     from: { opacity: 0, transform: "translateY(-100px)" },
     opacity: 1,
@@ -15,34 +20,25 @@ export const LandLink = ({ id, index }) => {
     config: { mass: 1, tension: 200, friction: 12 },
   });
 
-  const linkStyle =
+  useEffect(() => {
     showPage && anyLinkClicked
-      ? { top: "-43vh", color: "rgb(255, 255, 255)" }
+      ? setLinkStyle({ top: "-43vh", color: "rgb(255, 255, 255)" })
       : anyLinkClicked
-      ? { top: "-43vh", fontSize: "calc(2vmin + 12px)" }
-      : {};
-
-  const pageStyle =
-    showPage && anyLinkClicked
-      ? { transform: "translateY(7vh)", visibility: "visible" }
-      : { transform: "translateY(90vh)", visibility: "hidden" };
+      ? setLinkStyle({ top: "-43vh", fontSize: "calc(2vmin + 12px)" })
+      : setLinkStyle({});
+  }, [showPage, anyLinkClicked]);
 
   return (
-    <>
-      <animated.div style={landLinkAppear}>
-        <div
-          className="land-link"
-          id={id}
-          onClick={() => togglePage(id)}
-          style={linkStyle}
-        >
-          {text}
-        </div>
-      </animated.div>
-
-      <div className="page" style={pageStyle}>
-        {cloneElement(children, { showPage })}
-      </div>
-    </>
+    <animated.div style={landLinkAppear}>
+      <Link
+        to={showPage ? `/` : `${id.toLowerCase()}`}
+        className="land-link"
+        id={id}
+        onClick={() => togglePage(id)}
+        style={linkStyle}
+      >
+        {id}
+      </Link>
+    </animated.div>
   );
 };
