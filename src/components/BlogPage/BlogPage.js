@@ -1,11 +1,9 @@
-import React from "react";
-import "./BlogPage.css";
-import { Footer } from "../Footer";
+import React from 'react'
 
-export const BlogPage = ({ showPage }) => {
-  return (
-    <div>
-      <Footer showPage={showPage} />
-    </div>
-  );
-};
+export const BlogPage = () => {
+    return (
+        <div>
+            
+        </div>
+    )
+}

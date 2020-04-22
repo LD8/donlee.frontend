@@ -1,12 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(50, 50, 50);
   scroll-behavior: smooth;
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -19,4 +20,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --bg-color: rgb(0, 65, 0);
+  --text-shadow-color: rgb(58, 50, 1);
+  --bg-shadow-color: rgba(0, 0, 0, 0.7);
+  --page-bg-color: rgba(255, 255, 255, 0.9);
+  --link-text-color: white;
+  background-color: var(--bg-color);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./assets/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -10;
 }

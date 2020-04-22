@@ -1,14 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { Land } from "./Land";
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from './serviceWorker';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Land from './Land';
+import { BrowserRouter as Router } from "react-router-dom";
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Land />
+    <Router>
+      <Land />
+    </Router>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

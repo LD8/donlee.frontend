@@ -1,5 +1,5 @@
 import React from "react";
-import "./PortfolioPage.css";
+import styled from "styled-components";
 import { Footer } from "../Footer";
 import { Showcase } from "./Showcase";
 
@@ -13,12 +13,20 @@ const showcases = [
   {
     source: VA,
     altText: "an e-commerce website project",
-    labels: ["WebApp", "Python", "Django", "HTML5", "JavaScript", "CSS3", "Bootstrap"],
-},
-{
+    labels: [
+      "WebApp",
+      "Python",
+      "Django",
+      "HTML5",
+      "JavaScript",
+      "CSS3",
+      "Bootstrap",
+    ],
+  },
+  {
     source: metta,
     altText:
-    "A mockup forum for practicing purposes. Use django to build a forum website",
+      "A mockup forum for practicing purposes. Use django to build a forum website",
     labels: ["WebApp", "Python", "Django", "HTML5", "Bootstrap", "CSS3"],
   },
   {
@@ -35,30 +43,53 @@ const showcases = [
   },
 ];
 
-export const PortfolioPage = ({ showPage }) => {
+export const PortfolioPage = () => {
   return (
-    <div className="portfolio-page">
-      <section className="portfolio-page-title">
-        <h3>
-          From React.JS and UI/UX animations to Python and Django backend
-          support. Check out my latest web software development portfolio
-          projects.
-        </h3>
-      </section>
-      <section className="portfolio-page-title"></section>
+    <>
+      <SMyPortfolio id="SMyPortfolio">
+        <section className="brief">
+          <h3>
+            From React.JS and UI/UX animations to Python and Django backend
+            support. Check out my latest web software development portfolio
+            projects.
+          </h3>
+        </section>
 
-      <section className="showcase">
-        {showcases.map((showcase, index) => (
-          <Showcase
-            key={index}
-            imageSource={showcase.source}
-            altText={showcase.altText}
-            labels={showcase.labels}
-          />
-        ))}
-      </section>
+        <section className="showcase">
+          {showcases.map((showcase, index) => (
+            <Showcase
+              key={index}
+              imageSource={showcase.source}
+              altText={showcase.altText}
+              labels={showcase.labels}
+            />
+          ))}
+        </section>
+      </SMyPortfolio>
 
-      <Footer showPage={showPage} />
-    </div>
+      <Footer />
+    </>
   );
 };
+
+const SMyPortfolio = styled.div`
+  max-width: 1000px;
+  .brief {
+    margin: 3vh 0 5vh 0;
+    h3 {
+      line-height: 30px;
+      font-weight: 400;
+      font-size: 25px;
+      text-align: center;
+      @media only screen and (max-width: 800px) {
+        line-height: 25px;
+        font-size: 20px;
+      }
+    }
+  }
+  .showcase {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`;

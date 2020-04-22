@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import styled from "styled-components";
 import { Icon } from "./Icon";
 import At from "../assets/svg/At.svg";
 import Github from "../assets/svg/Github.svg";
@@ -23,19 +23,43 @@ const icons = [
   },
 ];
 
-export const Footer = ({ showPage }) => {
+export const Footer = () => {
   return (
-    <footer className="page-footer">
+    <SFooter id="SFooter">
       {icons.map((i, index) => (
         <Icon
           key={index}
-          showPage={showPage}
           imageSource={i.source}
           altText={i.altText}
           index={index}
           href={i.href}
         />
       ))}
-    </footer>
+    </SFooter>
   );
 };
+
+const SFooter = styled.footer`
+  position: sticky;
+  top: 100%;
+  width: 100%;
+  height: 15vh;
+  min-height: 100px;
+  max-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(160, 210, 140, 0.3);
+
+  a {
+    margin: 0 calc(1vw + 20px);
+    padding: 0;
+
+    img {
+      height: 40px;
+      @media only screen and (max-width: 800px) {
+        height: 35px;
+      }
+    }
+  }
+`;

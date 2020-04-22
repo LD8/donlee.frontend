@@ -1,8 +1,9 @@
 import React from "react";
-import "./AboutPage.css";
+import styled from "styled-components";
 import { Skill } from "./Skill";
 import { Footer } from "../Footer";
 import { AnimateImage } from "./AnimateImage";
+
 import Portrait from "../../assets/img/portrait.png";
 
 const skills = [
@@ -18,39 +19,65 @@ const skills = [
   { skill: "AutoCAD", percentage: 90 },
 ];
 
-export const AboutPage = ({ showPage }) => {
+export const AboutPage = () => {
   return (
-    <div className="about-page">
-      <section className="manifesto">
-        <AnimateImage
-          classes={"portrait"}
-          showPage={showPage}
-          imageSource={Portrait}
-          altText={"my portrait"}
-        />
-        <div className="my-title">
-          <h2>Don Lee</h2>
-          <p>Full-stack Developer</p>
-        </div>
-        <p>
-          Passionate in developing software and web apps that improve our lives
-          both physically and mentally
-        </p>
-      </section>
-
-      <section className="skills">
-        {skills.map((i, index) => (
-          <Skill
-            key={i.skill}
-            showPage={showPage}
-            skill={i.skill}
-            percentage={i.percentage}
-            index={index}
+    <>
+      <SMyInfo id="SMyInfo">
+        <section className="info-section">
+          <AnimateImage
+            classes={"portrait"}
+            imageSource={Portrait}
+            altText={"my portrait"}
           />
-        ))}
-      </section>
+          <div className="my-info">
+            <h2>Don Lee</h2>
+            <h4>Full-stack Developer</h4>
+            <p>
+              Passionate in developing software that improves our lives both
+              physically and mentally
+            </p>
+          </div>
+        </section>
 
-      <Footer showPage={showPage} />
-    </div>
+        <section className="skill-section">
+          {skills.map((i, index) => (
+            <Skill
+              key={i.skill}
+              skill={i.skill}
+              percentage={i.percentage}
+              index={index}
+            />
+          ))}
+        </section>
+      </SMyInfo>
+
+      <Footer />
+    </>
   );
 };
+
+const SMyInfo = styled.div`
+  max-width: 1000px;
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .my-info {
+      text-align: center;
+      text-justify: distribute;
+      color: rgb(70, 70, 70);
+      font-weight: 400;
+      h2 {
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font-size: calc(2vmin + 25px);
+      }
+      h4 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .skill-section {
+    margin: 5vh 10px;
+  }
+`;
