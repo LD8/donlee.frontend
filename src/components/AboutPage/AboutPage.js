@@ -25,7 +25,6 @@ export const AboutPage = () => {
       <SMyInfo id="SMyInfo">
         <section className="info-section">
           <AnimateImage
-            classes={"portrait"}
             imageSource={Portrait}
             altText={"my portrait"}
           />

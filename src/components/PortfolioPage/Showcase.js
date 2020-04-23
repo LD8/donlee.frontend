@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import { TechLabels } from "./TechLabels";
 
-export const Showcase = ({ imageSource, altText, labels }) => {
+export const Showcase = ({ showcase, url }) => {
+  const { id, name, imgSource, altText, labels } = showcase;
   const [isClicked, setIsClicked] = useState(false);
   const { opacity, transform } = useSpring({
     opacity: isClicked ? 1 : 0,
@@ -19,7 +20,7 @@ export const Showcase = ({ imageSource, altText, labels }) => {
           opacity: opacity.interpolate((o) => 1 - o),
           transform,
         }}
-        src={imageSource}
+        src={imgSource}
         alt={altText}
       />
       <animated.img
@@ -28,10 +29,18 @@ export const Showcase = ({ imageSource, altText, labels }) => {
           opacity,
           transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
         }}
-        src={imageSource}
+        src={imgSource}
         alt={altText}
       />
-      {isClicked && <TechLabels labels={labels} isClicked={isClicked} />}
+      {isClicked && (
+        <TechLabels
+          url={url}
+          id={id}
+          name={name}
+          labels={labels}
+          isClicked={isClicked}
+        />
+      )}
     </SCard>
   );
 };

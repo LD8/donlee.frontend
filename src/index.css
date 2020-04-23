@@ -28,6 +28,11 @@ code {
   --bg-shadow-color: rgba(0, 0, 0, 0.7);
   --page-bg-color: rgba(255, 255, 255, 0.9);
   --link-text-color: white;
+  --fadedgreen: rgb(120, 140, 120);
+  --deepgreen: rgb(0, 60, 0);
+  --titlegrey: rgb(128, 133, 136);
+  --title: rgb(70, 70, 70);
+
   background-color: var(--bg-color);
   position: relative;
   height: 100vh;

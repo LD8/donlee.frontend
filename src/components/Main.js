@@ -16,13 +16,13 @@ export default function Main({ params }) {
         <animated.div key={key} style={props}>
           <Switch location={location}>
             <Route exact path="/" />
-            {params.map((param) => (
+            {params.map(([param, Component]) => (
               <Route
-                key={param[0]}
-                path={`/${param[0]}`}
+                key={param}
+                path={`/${param}`}
                 render={() => (
                   <SPageContainer>
-                    <div className="scroll-page">{param[1]}</div>
+                    <div className="scroll-page">{Component}</div>
                   </SPageContainer>
                 )}
               />

@@ -1,10 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { TechLabel } from "./TechLabel";
+import { useSpring, animated } from "react-spring";
+import { Link } from "react-router-dom";
+import slugifyText from "../Utils.js";
 
-export const TechLabels = ({ labels, isClicked }) => {
+export const TechLabels = ({ url, id, name, labels, isClicked }) => {
+  const labelProps = useSpring({
+    opacity: isClicked ? 1 : 0,
+    transform: `translateY(${isClicked ? 0 : -10}px)`,
+    delay: 400,
+    from: { opacity: 0, transform: "translateY(-20px)" },
+    config: { mass: 1, tension: 120, friction: 8 },
+  });
+  console.log(slugifyText(name))
   return (
     <STechLabels id="STechLabels">
+      <animated.h4 style={labelProps}>{name}</animated.h4>
       <ul>
         {labels
           ? labels.map((label, index) => (
@@ -17,14 +29,15 @@ export const TechLabels = ({ labels, isClicked }) => {
             ))
           : null}
       </ul>
-      <a href="mailto:don_lee@me.com">
+      <Link
+        to={`${url}/showcases/${id}/${slugifyText(name)}`}
+      >
         <TechLabel
-          key={"more"}
           isClicked={isClicked}
           label={"more..."}
           index={labels ? labels.length + 8 : 8}
         />
-      </a>
+      </Link>
     </STechLabels>
   );
 };
@@ -38,7 +51,9 @@ const STechLabels = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
+  h4 {
+    color: lightgrey;
+  }
   ul {
     width: 90%;
     display: flex;

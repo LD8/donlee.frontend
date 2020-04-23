@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-export const AnimateImage = ({ classes, imageSource, altText }) => {
+export const AnimateImage = ({ imageSource, altText }) => {
   const dangleProps = useSpring({
     transform: "rotateZ(0deg)",
     from: { transform: "rotateZ(30deg)" },
@@ -12,7 +12,6 @@ export const AnimateImage = ({ classes, imageSource, altText }) => {
   return (
     <ImgContainer id="ImgContainer">
       <animated.img
-        className={classes}
         src={imageSource}
         alt={altText}
         style={dangleProps}
@@ -28,6 +27,7 @@ const ImgContainer = styled.div`
   width: 100%;
   img {
     width: 50%;
+    height: 50%;
     max-width: 250px;
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(130, 130, 130, 0.5);
