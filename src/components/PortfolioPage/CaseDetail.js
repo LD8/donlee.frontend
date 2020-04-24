@@ -1,28 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import slugifyText from "../Utils.js";
+import { APIBASE } from "../Const";
 
-export const CaseDetail = ({ showcases }) => {
-  const { id: paramId, slug: paramSlug } = useParams();
+export const CaseDetail = () => {
+  const [showcase, setShowcase] = useState({});
+  const [loaded, setLoaded] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Loading");
+  const { id: paramId } = useParams();
+
+  useEffect(() => {
+    fetch(`${APIBASE}/api/showcases/${paramId}/`)
+      .then((response) =>
+        response.status > 400
+          ? setPlaceholder(
+              `Something went wrong! Fetch Response ${response.status}`
+            )
+          : response.json()
+      )
+      .then((data) => {
+        setShowcase(data);
+        setLoaded(true);
+        // console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, [paramId]);
+
   const {
-    id,
     name,
-    imgSource,
-    altText,
+    img_front,
     brief,
     about,
-    techniques,
-    resources,
-  } = showcases.filter((showcase) => showcase.id === paramId)[0];
-  return paramId === id && paramSlug === slugifyText(name) ? (
+    techs,
+    link_online,
+    link_github,
+    link_codesandbox,
+  } = showcase;
+
+  return loaded ? (
     <SCaseDetail>
       <div className="intro">
         <h1>{name}</h1>
         <p>{brief}</p>
+        {/* carousel here to be made */}
         <figure>
-          <img src={imgSource} alt={altText} />
-          <figcaption>{altText}</figcaption>
+          <img src={img_front} alt={`Project: ${name} 1`} />
+          <figcaption>{`Project: ${name} 1`}</figcaption>
         </figure>
       </div>
       <section className="about">
@@ -32,7 +55,7 @@ export const CaseDetail = ({ showcases }) => {
       <section className="technical-sheet">
         <h2>Technical Sheet</h2>
         <ul>
-          {techniques.map((tech, i) => (
+          {techs.map((tech, i) => (
             <li key={i}>{tech}</li>
           ))}
         </ul>
@@ -40,37 +63,29 @@ export const CaseDetail = ({ showcases }) => {
       <section className="resources">
         <h2>Resources</h2>
         <ul>
-          {resources.online && (
+          {link_online && (
             <li>
               <span>Visit the website:</span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={resources.online}
-              >
-                {resources.online.toUpperCase()}
+              <a target="_blank" rel="noopener noreferrer" href={link_online}>
+                {link_online.toUpperCase()}
               </a>
             </li>
           )}
-          {resources.github && (
+          {link_github && (
             <li>
               <span>GitHub source files:</span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={resources.github}
-              >
-                {resources.github.toUpperCase()}
+              <a target="_blank" rel="noopener noreferrer" href={link_github}>
+                {link_github.toUpperCase()}
               </a>
             </li>
           )}
-          {resources.codesandbox && (
+          {link_codesandbox && (
             <li>
               <span>Code-Sandbox:</span>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={resources.codesandbox}
+                href={link_codesandbox}
               >
                 Portal Here
               </a>
@@ -80,7 +95,9 @@ export const CaseDetail = ({ showcases }) => {
       </section>
     </SCaseDetail>
   ) : (
-    <div>404 page</div>
+    <SCaseDetail>
+      <div>{placeholder}</div>
+    </SCaseDetail>
   );
 };
 

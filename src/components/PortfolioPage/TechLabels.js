@@ -13,7 +13,7 @@ export const TechLabels = ({ url, id, name, labels, isClicked }) => {
     from: { opacity: 0, transform: "translateY(-20px)" },
     config: { mass: 1, tension: 120, friction: 8 },
   });
-  console.log(slugifyText(name))
+  // console.log(slugifyText(name))
   return (
     <STechLabels id="STechLabels">
       <animated.h4 style={labelProps}>{name}</animated.h4>

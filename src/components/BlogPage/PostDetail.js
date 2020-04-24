@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { Tags } from "./Tags";
-import slugifyText from "../Utils.js";
+import { APIBASE } from "../Const";
 
-export const PostDetail = ({ posts }) => {
-  const { id, slug } = useParams();
-  const { title, tags, content, uploaded_date } = posts.filter(
-    (post) => post.id.toString() === id
-  )[0];
+export const PostDetail = () => {
+  const { id: paramId } = useParams();
+  const [post, setPost] = useState({});
+  const [placeHolder, setPlaceHolder] = useState("Loading");
+  const [loaded, setLoaded] = useState(false);
+  const { title, tags, content, uploaded_date } = post;
 
-  return slug === slugifyText(title) ? (
+  useEffect(() => {
+    fetch(`${APIBASE}/api/posts/${paramId}`)
+      .then((response) =>
+        response.status > 400
+          ? setPlaceHolder(
+              `Something went wrong! Fetch Response ${response.status}`
+            )
+          : response.json()
+      )
+      .then((data) => {
+        setPost(data);
+        setLoaded(true);
+      })
+      .catch((error) => console.log(error));
+  }, [paramId]);
+
+  return loaded ? (
     <SPostDetail>
       <h1>{title}</h1>
       <Tags tags={tags} />
@@ -18,7 +35,7 @@ export const PostDetail = ({ posts }) => {
       <p className="date">{uploaded_date}</p>
     </SPostDetail>
   ) : (
-    <SPostDetail>404 page</SPostDetail>
+    <SPostDetail>{placeHolder}</SPostDetail>
   );
 };
 

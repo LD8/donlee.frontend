@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 import { TechLabels } from "./TechLabels";
 
 export const Showcase = ({ showcase, url }) => {
-  const { id, name, imgSource, altText, labels } = showcase;
+  const { id, name, img_front,img_back, labels } = showcase;
   const [isClicked, setIsClicked] = useState(false);
   const { opacity, transform } = useSpring({
     opacity: isClicked ? 1 : 0,
@@ -20,8 +20,8 @@ export const Showcase = ({ showcase, url }) => {
           opacity: opacity.interpolate((o) => 1 - o),
           transform,
         }}
-        src={imgSource}
-        alt={altText}
+        src={img_front}
+        alt={`Project: ${name} for the front of the card`}
       />
       <animated.img
         className="card-back"
@@ -29,8 +29,8 @@ export const Showcase = ({ showcase, url }) => {
           opacity,
           transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
         }}
-        src={imgSource}
-        alt={altText}
+        src={img_back}
+        alt={`Project: ${name} for the back of the card`}
       />
       {isClicked && (
         <TechLabels
