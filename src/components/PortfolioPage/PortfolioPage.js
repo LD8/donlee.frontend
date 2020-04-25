@@ -11,7 +11,7 @@ export const PortfolioPage = () => {
   const { path, url } = useRouteMatch();
 
   const fetchCases = () => {
-    fetch(`${APIBASE}/api/showcases/`)
+    fetch(`${APIBASE}/showcases/`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);

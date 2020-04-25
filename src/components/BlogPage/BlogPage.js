@@ -1,17 +1,17 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Footer } from "../Footer";
 import { PostLi } from "./PostLi";
 import { PostDetail } from "./PostDetail";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-
+import { APIBASE } from "../Const";
 
 export const BlogPage = () => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
   const { path, url } = useRouteMatch();
 
   const fetchData = () => {
-    fetch("http://127.0.0.1:8000/api/posts/")
+    fetch(`${APIBASE}/posts/`)
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
@@ -83,8 +83,6 @@ const SMyPosts = styled.div`
     }
   }
 `;
-
-
 
 // const posts = [
 //   {

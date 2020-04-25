@@ -12,7 +12,7 @@ export const PostDetail = () => {
   const { title, tags, content, uploaded_date } = post;
 
   useEffect(() => {
-    fetch(`${APIBASE}/api/posts/${paramId}`)
+    fetch(`${APIBASE}/posts/${paramId}`)
       .then((response) =>
         response.status > 400
           ? setPlaceHolder(

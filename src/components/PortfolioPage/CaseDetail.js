@@ -10,7 +10,7 @@ export const CaseDetail = () => {
   const { id: paramId } = useParams();
 
   useEffect(() => {
-    fetch(`${APIBASE}/api/showcases/${paramId}/`)
+    fetch(`${APIBASE}/showcases/${paramId}/`)
       .then((response) =>
         response.status > 400
           ? setPlaceholder(
