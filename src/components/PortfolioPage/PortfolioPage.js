@@ -77,5 +77,6 @@ const SMyPortfolio = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 5vh;
   }
 `;

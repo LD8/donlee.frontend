@@ -19,7 +19,7 @@ const icons = [
   {
     source: Github,
     altText: "Github account of Don Lee",
-    href: "mailto: don_lee@me.com",
+    href: "https://github.com/LD8",
   },
 ];
 
@@ -52,9 +52,9 @@ const SFooter = styled.footer`
   /* background-color:rgb(220, 225, 200); */
   background-image: linear-gradient(
     90deg,
-    rgb(40, 43, 41),
+    rgb(40, 46, 41),
     rgba(140, 143, 141, 0.8),
-    rgb(40, 43, 41)
+    rgb(40, 46, 41)
   );
 
   a {

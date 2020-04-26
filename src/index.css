@@ -24,14 +24,14 @@ code {
 
 :root {
   --bg-color: rgb(0, 65, 0);
-  --text-shadow-color: rgb(58, 50, 1);
+  --text-shadow-color: rgb(31, 27, 0);
   --bg-shadow-color: rgba(0, 0, 0, 0.7);
   --page-bg-color: rgba(255, 255, 255, 0.9);
   --link-text-color: white;
   --fadedgreen: rgb(120, 140, 120);
-  --deepgreen: rgb(0, 60, 0);
-  --titlegrey: rgb(128, 133, 136);
-  --title: rgb(70, 70, 70);
+  --whitegreen: rgb(200, 230, 200);
+  --titlegrey: rgb(130, 140, 130); /* for titles visited on blog list view && tags background*/
+  --title: rgb(200, 200, 200); 
 
   background-color: var(--bg-color);
   position: relative;

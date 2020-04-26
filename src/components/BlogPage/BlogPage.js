@@ -31,9 +31,7 @@ export const BlogPage = () => {
             <SMyPosts id="SMyPosts">
               <section className="brief">
                 <h3>
-                  Post about my life and work... Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua.
+                  Posts about my life and work. 
                 </h3>
               </section>
 
@@ -65,13 +63,13 @@ const SMyPosts = styled.div`
   .brief {
     margin: 3vh 0 5vh 0;
     h3 {
+      text-align: center;
+      font-size: 25px;
       line-height: 30px;
       font-weight: 400;
-      font-size: 25px;
-      text-align: center;
       @media only screen and (max-width: 800px) {
-        line-height: 25px;
         font-size: 20px;
+        line-height: 25px;
       }
     }
   }

@@ -29,9 +29,7 @@ export const TechLabels = ({ url, id, name, labels, isClicked }) => {
             ))
           : null}
       </ul>
-      <Link
-        to={`${url}/showcases/${id}/${slugifyText(name)}`}
-      >
+      <Link to={`${url}/showcases/${id}/${slugifyText(name)}`}>
         <TechLabel
           isClicked={isClicked}
           label={"more..."}
@@ -81,12 +79,19 @@ const STechLabels = styled.div`
 
   a {
     text-decoration: none;
-    transition: transform 0.4s ease;
+    li {
+      transition: color 0.4s ease;
+      will-change: color background-image;
+    }
     :hover {
-      color: white;
-      transform: scale(1.1);
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.564);
+      li {
+        color: white;
+        background-image: linear-gradient(
+          180deg,
+          rgba(50, 50, 50, 0.9),
+          rgba(60, 60, 60, 0.8)
+        );
+      }
     }
   }
 `;

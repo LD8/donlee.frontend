@@ -24,7 +24,7 @@ export const Icon = ({ imageSource, altText, index, href }) => {
       onMouseLeave={() => setIsHovered(false)}
       style={hoveredProps}
     >
-      <a href={href}>
+      <a target="_blank" rel="noopener noreferrer" href={href}>
         <animated.img src={imageSource} alt={altText} style={dangleProps} />
       </a>
     </animated.div>

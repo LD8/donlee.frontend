@@ -28,34 +28,42 @@ export const Skill = ({ skill, percentage, index }) => {
   );
 };
 
-const SSkill = styled.div`
+const SSkill = styled.li`
+  margin: 0 auto;
   width: 100%;
-  max-width: 800px;
-  margin: 1vh 0;
+  margin: 1vh 0 1vh 1.5vw;
   font-size: calc(1vmin + 8px);
   display: flex;
-  --skill-name-width: calc(3vw + 50px);
+  justify-content: center;
+  --skill-name-width: calc(3vw + 60px);
+
+  @media only screen and (max-width: 800px) {
+    max-width: 100vw;
+    margin: 1vh 0 1vh 0.5vw;
+  }
 
   .skill-name {
     width: var(--skill-name-width);
     text-align: right;
     padding-right: 1vw;
   }
-  
+
   .skill-percentage-box {
     display: flex;
     align-items: center;
     width: calc(100% - var(--skill-name-width));
+    max-width: 600px;
 
     .skill-percentage-fill {
       width: 100%;
-      height: 50%;
+      height: 20%;
       border-radius: 3px;
       background-image: linear-gradient(
         90deg,
-        rgba(225, 180, 0, 0.4),
-        rgb(120, 190, 1)
+        rgba(0, 50, 110, 0.2),
+        rgb(95, 255, 180)
       );
+      box-shadow: 3px 3px 0 rgba(10, 5, 30, 0.3);
     }
     .skill-percentage-text {
       font-size: smaller;

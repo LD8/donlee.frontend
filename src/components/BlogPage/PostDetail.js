@@ -39,7 +39,7 @@ export const PostDetail = () => {
         renderers={{ code: CodeBlock }}
         className="content"
       />
-      <p className="date">{uploaded_date.slice(0, 10)}</p>
+      <p className="date">{uploaded_date && uploaded_date.slice(0, 10)}</p>
     </SPostDetail>
   ) : (
     <SPostDetail>{placeHolder}</SPostDetail>
@@ -52,12 +52,11 @@ const SPostDetail = styled.div`
   margin: 5vh auto;
   padding: 0 10px;
   .title {
-    color: white;
-    text-align: center;
-    font-family: "Lobster", cursive;
-    font-weight: 200;
-    font-size: calc(1vmin + 25px);
     margin-bottom: 1vh;
+    text-align: center;
+    font-size: calc(1vmin + 25px);
+    color: white;
+    font-weight: 500;
   }
   .content {
     margin: 5vh 0;
@@ -77,8 +76,8 @@ const SPostDetail = styled.div`
     }
     pre {
       border-radius: 10px;
-      border: 1.5px solid rgb(90,90,90);
-      box-shadow: inset -1.5px -3px 6px rgba(170,165,190,0.5);
+      border: 1.5px solid rgb(90, 90, 90);
+      box-shadow: inset -1.5px -3px 6px rgba(170, 165, 190, 0.5);
       margin-bottom: 20px !important;
     }
     code {

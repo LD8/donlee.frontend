@@ -11,31 +11,29 @@ export const AnimateImage = ({ imageSource, altText }) => {
 
   return (
     <ImgContainer id="ImgContainer">
-      <animated.img
-        src={imageSource}
-        alt={altText}
-        style={dangleProps}
-      />
+      <animated.img src={imageSource} alt={altText} style={dangleProps} />
     </ImgContainer>
   );
 };
 
 const ImgContainer = styled.div`
-  margin: 4vh 0;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 40%;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
   img {
     width: 50%;
     height: 50%;
-    max-width: 250px;
-    border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(130, 130, 130, 0.5);
+    max-width: 200px;
+    border-radius: 20%;
+    box-shadow: 3px 3px 0 rgba(10, 5, 30, 0.8);
     background-image: linear-gradient(
       45deg,
-      rgba(197, 228, 219, 0.2),
-      rgba(216, 211, 181, 0.2)
+      rgba(230, 210, 200, 1),
+      rgba(200, 220, 220, 0.8)
     );
-    filter: contrast(1.5);
+    filter: contrast(1.9);
   }
 `;

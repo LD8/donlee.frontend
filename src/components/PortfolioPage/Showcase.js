@@ -51,15 +51,16 @@ const SCard = styled.div`
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.5s ease;
+  will-change: transform;
+  font-size: 0;
   :hover {
     transform: scale(1.03);
   }
 
   img {
     width: 100%;
-    border: 2px solid rgba(26, 70, 3, 0.2);
     border-radius: 6px;
-    box-shadow: 0 5px 15px rgba(128, 128, 128, 0.5);
+    box-shadow: 0 0 15px rgb(10, 5, 30);
   }
 
   .card-back {

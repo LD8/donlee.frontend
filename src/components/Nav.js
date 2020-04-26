@@ -6,12 +6,22 @@ const capitalize = (text) => `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
 
 export default function Nav({ params }) {
   const { pathname } = useLocation();
+  const linkActivated = (param, path) => {
+    const regex = new RegExp("^/" + param + "/?.*", "i");
+    return regex.test(path);
+  };
   return (
     <SNav top={pathname === "/"}>
       <ul>
         {params.map(([param]) => (
           <li key={param}>
-            <SNavLink to={pathname !== `/${param}` ? `/${param}` : "/"}>
+            <SNavLink
+              to={pathname !== `/${param}` ? `/${param}` : "/"}
+              activation={`${
+                linkActivated(param, pathname) || pathname === "/"
+              }`}
+              home={`${pathname === "/"}`}
+            >
               {capitalize(param)}
             </SNavLink>
           </li>
@@ -38,11 +48,10 @@ const SNav = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 800px) {
       width: 100%;
       justify-content: space-between;
     }
-
     li {
       list-style: none;
       margin: 0 10px;
@@ -54,12 +63,17 @@ const SNavLink = styled(NavLink)`
   position: relative;
   text-decoration: none;
   font-family: "Lobster", cursive;
-  font-size: calc(2vmin + 20px);
+  font-size: ${({ activation }) =>
+    activation === "true" ? "calc(2vmin + 25px)" : "calc(1vmin + 15px)"};
+  color: ${({ activation }) => (activation === "true" ? "white" : "silver")};
   letter-spacing: 2px;
-  color: var(--link-text-color);
-  text-shadow: 0 5px 20px var(--text-shadow-color);
+
+  text-shadow: ${({ activation }) =>
+    activation === "true" ? "4px 4px 4px rgb(10, 5, 1)" : "3px 3px 10px rgb(10, 5, 30)"};
   transition: all 0.5s ease;
   :hover {
-    font-size: calc(2vmin + 25px);
+    font-size: ${({ home }) =>
+      home === "true" ? "calc(3vmin + 20px)" : "calc(2vmin + 25px)"};
+    color: var(--link-text-color);
   }
 `;

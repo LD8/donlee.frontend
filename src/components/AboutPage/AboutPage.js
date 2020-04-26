@@ -24,10 +24,7 @@ export const AboutPage = () => {
     <>
       <SMyInfo id="SMyInfo">
         <section className="info-section">
-          <AnimateImage
-            imageSource={Portrait}
-            altText={"my portrait"}
-          />
+          <AnimateImage imageSource={Portrait} altText={"my portrait"} />
           <div className="my-info">
             <h2>Don Lee</h2>
             <h4>Full-stack Developer</h4>
@@ -39,14 +36,16 @@ export const AboutPage = () => {
         </section>
 
         <section className="skill-section">
-          {skills.map((i, index) => (
-            <Skill
-              key={i.skill}
-              skill={i.skill}
-              percentage={i.percentage}
-              index={index}
-            />
-          ))}
+          <ul>
+            {skills.map((i, index) => (
+              <Skill
+                key={i.skill}
+                skill={i.skill}
+                percentage={i.percentage}
+                index={index}
+              />
+            ))}
+          </ul>
         </section>
       </SMyInfo>
 
@@ -56,27 +55,60 @@ export const AboutPage = () => {
 };
 
 const SMyInfo = styled.div`
-  max-width: 1000px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
   .info-section {
+    width: 100%;
+    margin: 5vh 10px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    /* img is styled in AnimateImage.js */
     .my-info {
-      text-align: center;
-      text-justify: distribute;
-      color: rgb(70, 70, 70);
+      width: 60%;
+      text-align: left;
+      color: var(--title);
+      text-shadow: 3px 3px 0 rgba(10, 5, 30, 0.8);
       font-weight: 400;
       h2 {
         text-transform: uppercase;
         margin-bottom: 5px;
         font-size: calc(2vmin + 25px);
       }
-      h4 {
-        margin-bottom: 20px;
+      h4,
+      p {
+        margin: 0 0 20px 5px;
+      }
+      p {
+        margin-bottom: 0;
+      }
+      @media only screen and (max-width: 800px) {
+        width: calc(100vw - 8px);
+        text-align: center;
+        h2 {
+          margin: 4vh 0 5px 0;
+        }
+        h4,
+        p {
+          margin: 0 10px 2vh;
+        }
       }
     }
   }
   .skill-section {
-    margin: 5vh 10px;
+    width: 100%;
+    margin: 0 10px 5vh 10px;
+    ul {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 `;

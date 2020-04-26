@@ -127,6 +127,14 @@ const SCaseDetail = styled.div`
     }
     img {
       width: 100%;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgb(10, 5, 20);
+      transition: filter 0.5s ease;
+      will-change: filter;
+      :hover {
+      box-shadow: 0 0 5px rgb(10, 5, 20);
+        filter: brightness(60%);
+      }
     }
     figcaption {
       display: none;
@@ -154,6 +162,18 @@ const SCaseDetail = styled.div`
     ul > li > span {
       width: 200px;
       padding-right: 20px;
+    }
+  }
+  a {
+    color: orangered;
+    :hover {
+      color: greenyellow;
+    }
+    :visited {
+      color: green;
+      :hover {
+        color: greenyellow;
+      }
     }
   }
 `;

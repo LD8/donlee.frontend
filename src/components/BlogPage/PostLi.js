@@ -27,7 +27,7 @@ export const PostLi = ({ post, url }) => {
 const SPostLi = styled.li`
   width: 90%;
   max-width: 600px;
-  margin: 4vh auto;
+  margin: 0 auto 5vh auto;
   a {
     text-decoration: none;
     :hover {
@@ -37,6 +37,11 @@ const SPostLi = styled.li`
 
   h2 {
     font-weight: 500;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+      @media only screen and (max-width: 800px) {
+        font-size: 25px;
+      }
     a {
       color: var(--title);
       :visited {
@@ -49,7 +54,7 @@ const SPostLi = styled.li`
     margin: 10px 0;
     font-weight: 350;
     a {
-      color: var(--deepgreen);
+      color: var(--whitegreen);
       :visited {
         color: var(--fadedgreen);
       }

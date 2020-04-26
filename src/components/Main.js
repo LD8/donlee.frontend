@@ -52,25 +52,27 @@ const SPageContainer = styled.div`
   align-items: center;
   border-radius: 5px 5px 0 0;
   box-shadow: 0 0 20px var(--bg-shadow-color);
+  will-change: transform opacity;
 
   .scroll-page {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* DO NOT USE 'justify-content: center', or it won't scroll */
     overflow-y: scroll;
     overflow-x: hidden;
     /* dark background, light font */
     color: silver;
+    /* background-color: rgb(40, 43, 41); */
     background-image: linear-gradient(
-    180deg,
-    rgba(40, 43, 41, 0.85),
-    rgba(40, 43, 41, 0.95)
-  );
+      180deg,
+      rgba(40, 43, 41, 0.85),
+      rgba(40, 43, 41, 1)
+    );
 
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 4px;
     }
     ::-webkit-scrollbar-thumb {
       background-color: rgba(80, 100, 80, 0.3);
