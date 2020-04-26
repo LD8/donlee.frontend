@@ -44,12 +44,18 @@ const SFooter = styled.footer`
   top: 100%;
   width: 100%;
   height: 15vh;
-  min-height: 100px;
+  min-height: 170px;
   max-height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(160, 210, 140, 0.3);
+  /* background-color:rgb(220, 225, 200); */
+  background-image: linear-gradient(
+    90deg,
+    rgb(40, 43, 41),
+    rgba(140, 143, 141, 0.8),
+    rgb(40, 43, 41)
+  );
 
   a {
     margin: 0 calc(1vw + 20px);

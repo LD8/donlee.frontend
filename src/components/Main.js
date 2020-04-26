@@ -5,6 +5,7 @@ import { useTransition, animated } from "react-spring";
 
 export default function Main({ params }) {
   const location = useLocation();
+  // console.log(location)
   const transitions = useTransition(location, (location) => location.pathname, {
     from: { opacity: 0, transform: "translate3d(100%,0,0)" },
     enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
@@ -49,11 +50,6 @@ const SPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(238, 243, 231, 0.95)
-  );
   border-radius: 5px 5px 0 0;
   box-shadow: 0 0 20px var(--bg-shadow-color);
 
@@ -64,12 +60,20 @@ const SPageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    overflow-x: hidden;
+    /* dark background, light font */
+    color: silver;
+    background-image: linear-gradient(
+    180deg,
+    rgba(40, 43, 41, 0.85),
+    rgba(40, 43, 41, 0.95)
+  );
 
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: rgba(61, 128, 30, 0.356);
+      background-color: rgba(80, 100, 80, 0.3);
       border-radius: 3px;
     }
   }

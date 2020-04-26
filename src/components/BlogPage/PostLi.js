@@ -19,7 +19,7 @@ export const PostLi = ({ post, url }) => {
           {`${content.slice(0, 120)}...`}
         </Link>
       </p>
-      <p className="date">{uploaded_date}</p>
+      <p className="date">{uploaded_date && uploaded_date.slice(0,10)}</p>
     </SPostLi>
   );
 };
@@ -27,7 +27,7 @@ export const PostLi = ({ post, url }) => {
 const SPostLi = styled.li`
   width: 90%;
   max-width: 600px;
-  margin: 4vh 5px;
+  margin: 4vh auto;
   a {
     text-decoration: none;
     :hover {

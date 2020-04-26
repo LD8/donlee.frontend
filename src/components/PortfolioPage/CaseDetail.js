@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { APIBASE } from "../Const";
+import { ImgCarousel } from "./ImgCarousel";
 
 export const CaseDetail = () => {
   const [showcase, setShowcase] = useState({});
@@ -29,6 +30,8 @@ export const CaseDetail = () => {
   const {
     name,
     img_front,
+    img_back,
+    img_third,
     brief,
     about,
     techs,
@@ -37,16 +40,21 @@ export const CaseDetail = () => {
     link_codesandbox,
   } = showcase;
 
+  const imgLinks = [img_front, img_back, img_third].filter(
+    (link) => link !== null
+  );
+
   return loaded ? (
     <SCaseDetail>
       <div className="intro">
         <h1>{name}</h1>
         <p>{brief}</p>
         {/* carousel here to be made */}
-        <figure>
+        <ImgCarousel imgLinks={imgLinks} />
+        {/* <figure>
           <img src={img_front} alt={`Project: ${name} 1`} />
           <figcaption>{`Project: ${name} 1`}</figcaption>
-        </figure>
+        </figure> */}
       </div>
       <section className="about">
         <h2>About this project</h2>
@@ -60,39 +68,41 @@ export const CaseDetail = () => {
           ))}
         </ul>
       </section>
-      <section className="resources">
-        <h2>Resources</h2>
-        <ul>
-          {link_online && (
-            <li>
-              <span>Visit the website:</span>
-              <a target="_blank" rel="noopener noreferrer" href={link_online}>
-                {link_online.toUpperCase()}
-              </a>
-            </li>
-          )}
-          {link_github && (
-            <li>
-              <span>GitHub source files:</span>
-              <a target="_blank" rel="noopener noreferrer" href={link_github}>
-                {link_github.toUpperCase()}
-              </a>
-            </li>
-          )}
-          {link_codesandbox && (
-            <li>
-              <span>Code-Sandbox:</span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={link_codesandbox}
-              >
-                Portal Here
-              </a>
-            </li>
-          )}
-        </ul>
-      </section>
+      {(link_online || link_github || link_codesandbox) && (
+        <section className="resources">
+          <h2>Resources</h2>
+          <ul>
+            {link_online && (
+              <li>
+                <span>Visit the website:</span>
+                <a target="_blank" rel="noopener noreferrer" href={link_online}>
+                  {link_online.toUpperCase()}
+                </a>
+              </li>
+            )}
+            {link_github && (
+              <li>
+                <span>GitHub source files:</span>
+                <a target="_blank" rel="noopener noreferrer" href={link_github}>
+                  {link_github.toUpperCase()}
+                </a>
+              </li>
+            )}
+            {link_codesandbox && (
+              <li>
+                <span>Code-Sandbox:</span>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link_codesandbox}
+                >
+                  Portal Here
+                </a>
+              </li>
+            )}
+          </ul>
+        </section>
+      )}
     </SCaseDetail>
   ) : (
     <SCaseDetail>

@@ -16,7 +16,8 @@ export const BlogPage = () => {
       .then((data) => {
         setPosts(data);
         // console.log(data);
-      });
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => fetchData(), []);
@@ -60,9 +61,9 @@ export const BlogPage = () => {
 
 const SMyPosts = styled.div`
   max-width: 1000px;
-  margin: 4vh 20px;
+  width: 100%;
   .brief {
-    margin-bottom: 4vh;
+    margin: 3vh 0 5vh 0;
     h3 {
       line-height: 30px;
       font-weight: 400;
@@ -80,89 +81,8 @@ const SMyPosts = styled.div`
     flex-wrap: wrap;
     ul {
       list-style: none;
+      width: 100%;
+      text-align: center;
     }
   }
 `;
-
-// const posts = [
-//   {
-//     id: 1,
-//     title: "Post1",
-//     tags: ["React", "Deployment"],
-//     content:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 2,
-//     title: "Post2",
-//     tags: ["Django", "Notes"],
-//     content:
-//       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 3,
-//     title: "Post3",
-//     tags: ["React", "Notes"],
-//     content:
-//       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 4,
-//     title: "Post4",
-//     tags: ["Django", "REST", "Notes"],
-//     content:
-//       "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 5,
-//     title: "Post5",
-//     tags: ["Daily Notes"],
-//     content:
-//       "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 6,
-//     title: "Post1 - React Deployment",
-//     tags: ["React", "Deployment"],
-//     content:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 7,
-//     title: "Post2",
-//     tags: ["Django", "Notes"],
-//     content:
-//       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 8,
-//     title: "Post3",
-//     tags: ["React", "Notes"],
-//     content:
-//       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 9,
-//     title: "Post4",
-//     tags: ["Django", "REST", "Notes"],
-//     content:
-//       "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-//   {
-//     id: 10,
-//     title: "Post5",
-//     tags: ["Daily Notes"],
-//     content:
-//       "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//     uploaded_date: "2020-04-23",
-//   },
-// ];

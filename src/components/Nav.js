@@ -36,8 +36,13 @@ const SNav = styled.nav`
     width: 80%;
     height: 7vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     li {
       list-style: none;
       margin: 0 10px;

@@ -10,13 +10,13 @@ const skills = [
   { skill: "HTML", percentage: 90 },
   { skill: "CSS", percentage: 90 },
   { skill: "JavaScript", percentage: 70 },
-  { skill: "React.js", percentage: 60 },
+  { skill: "React.js", percentage: 70 },
   { skill: "Python", percentage: 60 },
   { skill: "Django", percentage: 70 },
   { skill: "Flask", percentage: 50 },
   { skill: "Photoshop", percentage: 70 },
   { skill: "SketchUp", percentage: 90 },
-  { skill: "AutoCAD", percentage: 90 },
+  { skill: "AutoCAD", percentage: 80 },
 ];
 
 export const AboutPage = () => {
