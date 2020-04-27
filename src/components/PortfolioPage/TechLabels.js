@@ -13,7 +13,7 @@ export const TechLabels = ({ url, id, name, labels, isClicked }) => {
     from: { opacity: 0, transform: "translateY(-20px)" },
     config: { mass: 1, tension: 120, friction: 8 },
   });
-  // console.log(slugifyText(name))
+
   return (
     <STechLabels id="STechLabels">
       <animated.h4 style={labelProps}>{name}</animated.h4>
@@ -58,23 +58,6 @@ const STechLabels = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
-  li {
-    list-style: none;
-    width: 90px;
-    height: 30px;
-    padding-top: 6px;
-    margin: 1px;
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    font-size: 14px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    background-image: linear-gradient(
-      180deg,
-      rgba(70, 70, 70, 0.8),
-      rgba(30, 30, 30, 0.9)
-    );
   }
 
   a {

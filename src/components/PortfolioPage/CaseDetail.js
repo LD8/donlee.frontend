@@ -8,10 +8,10 @@ export const CaseDetail = () => {
   const [showcase, setShowcase] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [placeholder, setPlaceholder] = useState("Loading");
-  const { id: paramId } = useParams();
+  const { id: caseID } = useParams();
 
   useEffect(() => {
-    fetch(`${APIBASE}/showcases/${paramId}/`)
+    fetch(`${APIBASE}/showcases/${caseID}/`)
       .then((response) =>
         response.status > 400
           ? setPlaceholder(
@@ -25,7 +25,7 @@ export const CaseDetail = () => {
         // console.log(data);
       })
       .catch((error) => console.log(error));
-  }, [paramId]);
+  }, [caseID]);
 
   const {
     name,
@@ -51,10 +51,6 @@ export const CaseDetail = () => {
         <p>{brief}</p>
         {/* carousel here to be made */}
         <ImgCarousel imgLinks={imgLinks} />
-        {/* <figure>
-          <img src={img_front} alt={`Project: ${name} 1`} />
-          <figcaption>{`Project: ${name} 1`}</figcaption>
-        </figure> */}
       </div>
       <section className="about">
         <h2>About this project</h2>
@@ -128,11 +124,11 @@ const SCaseDetail = styled.div`
     img {
       width: 100%;
       cursor: pointer;
-      box-shadow: 0 0 15px rgb(10, 5, 20);
+      box-shadow: 0 0 15px rgb(20, 15, 30);
       transition: filter 0.5s ease;
       will-change: filter;
       :hover {
-      box-shadow: 0 0 5px rgb(10, 5, 20);
+      box-shadow: 0 0 5px rgb(20, 15, 30);
         filter: brightness(60%);
       }
     }

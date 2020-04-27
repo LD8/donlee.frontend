@@ -67,8 +67,8 @@ const SPageContainer = styled.div`
     /* background-color: rgb(40, 43, 41); */
     background-image: linear-gradient(
       180deg,
-      rgba(40, 43, 41, 0.85),
-      rgba(40, 43, 41, 1)
+      rgba(40, 43, 41, 0.8),
+      rgba(40, 43, 41, 0.9)
     );
 
     ::-webkit-scrollbar {

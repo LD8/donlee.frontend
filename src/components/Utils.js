@@ -9,5 +9,6 @@ export default function slugifyText(text) {
     : slugArr[0]
         .split("")
         .filter((char) => !/[:_]/.test(char))
-        .join("");
+        .join("")
+        .toLowerCase();
 }
