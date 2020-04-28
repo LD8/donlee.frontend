@@ -65,7 +65,7 @@ const SNavLink = styled(NavLink)`
   font-family: "Lobster", cursive;
   font-size: ${({ activation }) =>
     activation === "true" ? "calc(2vmin + 25px)" : "calc(1vmin + 15px)"};
-  color: ${({ activation }) => (activation === "true" ? "white" : "silver")};
+  color: white;
   letter-spacing: 2px;
 
   text-shadow: ${({ activation }) =>

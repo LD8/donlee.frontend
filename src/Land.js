@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { AboutPage } from "./components/AboutPage/AboutPage";
 import { PortfolioPage } from "./components/PortfolioPage/PortfolioPage";
 import { BlogPage } from "./components/BlogPage/BlogPage";
-import { CV } from "./components/CVPage/CV";
+import { CVPage } from "./components/CVPage/CVPage";
 import { Route, Switch } from "react-router-dom";
 import BG from "./assets/img/bg.jpg";
 
@@ -22,7 +22,7 @@ export default function Land() {
   const isLanding = pathname === "/";
   return (
     <Switch>
-      <Route exact path="/cv" component={CV} />
+      <Route exact path="/cv" component={CVPage} />
       <Route path="/">
         <SContainer id="SContainer">
           <SBGDimmer darken={isLanding} id="SBGDimmer" />

@@ -46,6 +46,7 @@ const SSkill = styled.li`
     width: var(--skill-name-width);
     text-align: right;
     padding-right: 1vw;
+    text-shadow: 2px 2px 0 rgba(10, 5, 30, 0.8);
   }
 
   .skill-percentage-box {

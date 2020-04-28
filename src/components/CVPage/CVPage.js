@@ -113,7 +113,7 @@ const educations = [
   },
 ];
 
-export const CV = () => {
+export const CVPage = () => {
   return (
     <SPaper id="SPaper">
       <section className="title">
