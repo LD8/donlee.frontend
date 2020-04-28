@@ -7,6 +7,9 @@ import { useLocation } from "react-router-dom";
 import { AboutPage } from "./components/AboutPage/AboutPage";
 import { PortfolioPage } from "./components/PortfolioPage/PortfolioPage";
 import { BlogPage } from "./components/BlogPage/BlogPage";
+import { CV } from "./components/CVPage/CV";
+import { Route, Switch } from "react-router-dom";
+import BG from "./assets/img/bg.jpg";
 
 const params = [
   ["about", <AboutPage />],
@@ -18,12 +21,17 @@ export default function Land() {
   const { pathname } = useLocation();
   const isLanding = pathname === "/";
   return (
-    <SContainer id="SContainer">
-      <Nav params={params} />
-      <Main params={params} />
-      <Quote transparent={isLanding} />
-      <SBGDimmer darken={isLanding} id="SBGDimmer" />
-    </SContainer>
+    <Switch>
+      <Route exact path="/cv" component={CV} />
+      <Route path="/">
+        <SContainer id="SContainer">
+          <SBGDimmer darken={isLanding} id="SBGDimmer" />
+          <Nav params={params} />
+          <Main params={params} />
+          <Quote transparent={isLanding} />
+        </SContainer>
+      </Route>
+    </Switch>
   );
 }
 
@@ -35,6 +43,12 @@ const SContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+
+  /* background-color: var(--bg-color); */
+  background-image: url(${BG});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 const SBGDimmer = styled.div`
@@ -49,5 +63,4 @@ const SBGDimmer = styled.div`
     rgba(150, 150, 150, 0.05),
     rgba(0, 0, 0, 0.5)
   );
-  z-index: -9;
 `;

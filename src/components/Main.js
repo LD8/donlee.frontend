@@ -12,7 +12,7 @@ export default function Main({ params }) {
     leave: { opacity: 0, transform: "translate3d(-100%,0,0)" },
   });
   return (
-    <SMain>
+    <SMain id="main">
       {transitions.map(({ item: location, props, key }) => (
         <animated.div key={key} style={props}>
           <Switch location={location}>

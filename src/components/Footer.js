@@ -13,7 +13,7 @@ const icons = [
   },
   {
     source: CV,
-    altText: "CV/Resumé of Don Lee, click to view",
+    altText: "CV",
     href: "mailto: don_lee@me.com",
   },
   {

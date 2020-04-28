@@ -24,10 +24,13 @@ export const Icon = ({ imageSource, altText, index, href }) => {
       onMouseLeave={() => setIsHovered(false)}
       style={hoveredProps}
     >
-      <a target="_blank" rel="noopener noreferrer" href={href}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={altText === "CV" ? "cv" : href}
+      >
         <animated.img src={imageSource} alt={altText} style={dangleProps} />
       </a>
     </animated.div>
   );
 };
-
