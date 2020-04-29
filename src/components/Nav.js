@@ -62,7 +62,7 @@ const SNav = styled.nav`
 const SNavLink = styled(NavLink)`
   position: relative;
   text-decoration: none;
-  font-family: "Lobster", cursive;
+  font-family: var(--nav-font);
   font-size: ${({ activation }) =>
     activation === "true" ? "calc(2vmin + 25px)" : "calc(1vmin + 15px)"};
   color: white;
@@ -71,6 +71,7 @@ const SNavLink = styled(NavLink)`
   text-shadow: ${({ activation }) =>
     activation === "true" ? "4px 4px 4px rgb(10, 5, 1)" : "3px 3px 10px rgb(10, 5, 30)"};
   transition: all 0.5s ease;
+  will-change: font-size color;
   :hover {
     font-size: ${({ home }) =>
       home === "true" ? "calc(3vmin + 20px)" : "calc(2vmin + 25px)"};

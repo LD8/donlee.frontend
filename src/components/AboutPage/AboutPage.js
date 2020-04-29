@@ -55,14 +55,15 @@ export const AboutPage = () => {
 };
 
 const SMyInfo = styled.div`
-  max-width: 800px;
   width: 100%;
+  max-width: 800px;
+  min-height: 900px;
   display: flex;
   flex-wrap: wrap;
 
   .info-section {
     width: 100%;
-    margin: 5vh 10px;
+    margin: 5vh auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -101,7 +102,7 @@ const SMyInfo = styled.div`
   }
   .skill-section {
     width: 100%;
-    margin: 0 10px 5vh 10px;
+    margin: 0 20px 5vh 10px;
     ul {
       width: 100%;
       max-width: 680px;

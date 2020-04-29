@@ -62,6 +62,7 @@ const SPageContainer = styled.div`
     align-items: center; /* DO NOT USE 'justify-content: center', or it won't scroll */
     overflow-y: scroll;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* keep scrolling after finger leaves the screen */
     /* dark background, light font */
     color: silver;
     /* background-color: rgb(40, 43, 41); */

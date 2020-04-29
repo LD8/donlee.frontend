@@ -188,6 +188,25 @@ export const CVPage = () => {
           <Education key={index} education={education} />
         ))}
       </section>
+
+      <section className="other">
+        <div className="sub-title">
+          <h3>Other Perks</h3>
+        </div>
+
+        <div className="sub-container">
+          <div className="aside"></div>
+          <div className="details">
+            <ul>
+              <li>
+                Speaks fluent English (IELTS 8.0), native Mandarin and basic
+                French
+              </li>
+              <li>In his free time, liks to read, blog, swim and travel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </SPaper>
   );
 };
@@ -201,6 +220,7 @@ const SPaper = styled.div`
   --fontL: 25px;
   --fontM: 16px;
   --fontS: 13px;
+  --paper-padding: 80px;
   @media only screen and (max-width: 800px) {
     --whole-width: 100%;
     --aside-width: 100%;
@@ -213,7 +233,7 @@ const SPaper = styled.div`
   max-width: var(--whole-width);
 
   margin: 50px auto;
-  padding: 80px;
+  padding: var(--paper-padding);
 
   display: flex;
   flex-direction: column;
@@ -224,7 +244,7 @@ const SPaper = styled.div`
   color: rgb(70, 70, 70);
   line-height: 1.5em;
 
-  /* border: 1px solid rgb(230, 230, 230); */
+  border: 1px solid rgb(230, 230, 230);
   border-radius: 3px;
   background-color: white;
   box-shadow: 3px 4px 0 rgb(70, 70, 70);
@@ -235,17 +255,7 @@ const SPaper = styled.div`
   }
 
   /* ------------------------- general ------- */
-  h3 {
-    width: var(--main-width);
-    margin-left: auto;
-    margin-bottom: var(--fontS);
-    padding-bottom: 5px;
 
-    color: var(--theme-color);
-    font-size: var(--fontL);
-    font-weight: 100;
-    border-bottom: 2px solid rgb(240, 240, 240);
-  }
   ul {
     list-style: square;
     margin-left: 20px;
@@ -295,6 +305,7 @@ const SPaper = styled.div`
           text-transform: uppercase;
           font-size: var(--fontXL);
           font-weight: 600;
+          letter-spacing: 0.05em;
           color: var(--theme-color);
         }
         h2 {
@@ -369,11 +380,28 @@ const SPaper = styled.div`
   /* ------------------------- SEE sections ------- */
   .skills,
   .experience,
-  .education {
+  .education,
+  .other {
+    width: var(--whole-width - --paper-padding * 2 - 2);
+    margin-bottom: 20px;
+    /* margin-left: auto; */
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
+    .sub-title {
+      width: var(--main-width);
+      margin-left: auto;
+      h3 {
+        width: var(--main-width);
+        margin-bottom: var(--fontS);
+        padding-bottom: 5px;
+
+        color: var(--theme-color);
+        font-size: var(--fontL);
+        font-weight: 100;
+        letter-spacing: 0.05em;
+        border-bottom: 2px solid rgb(240, 240, 240);
+      }
+    }
     .sub-container {
       display: flex;
       margin-bottom: 20px;
@@ -402,7 +430,12 @@ const SPaper = styled.div`
   @media only screen and (max-width: 800px) {
     .skills,
     .experience,
-    .education {
+    .education,
+    .other {
+      width: 100%;
+      .sub-title {
+        width: 100%;
+      }
       .sub-container {
         flex-direction: column;
         .aside {
@@ -429,5 +462,17 @@ const SPaper = styled.div`
         }
       }
     }
+  }
+
+  @media print {
+    width: 842px;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    /* .experience{
+      .sub-container {
+        margin-bottom: 40px;
+      }
+    } */
   }
 `;

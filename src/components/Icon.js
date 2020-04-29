@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-export const Icon = ({ imageSource, altText, index, href }) => {
+export const Icon = ({ name, imageSource, altText, index, href }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const dangleProps = useSpring({
@@ -19,18 +19,29 @@ export const Icon = ({ imageSource, altText, index, href }) => {
   });
 
   return (
-    <animated.div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={hoveredProps}
-    >
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href={altText === "CV" ? "cv" : href}
+    <div className="icon">
+      <animated.div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={hoveredProps}
       >
-        <animated.img src={imageSource} alt={altText} style={dangleProps} />
-      </a>
-    </animated.div>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={name === "CV" ? "cv" : href}
+        >
+          <animated.img src={imageSource} alt={altText} style={dangleProps} />
+        </a>
+      </animated.div>
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={name === "CV" ? "cv" : href}
+        >
+          {name}
+        </a>
+      </p>
+    </div>
   );
 };

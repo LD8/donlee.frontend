@@ -31,7 +31,7 @@ export const Skill = ({ skill, percentage, index }) => {
 const SSkill = styled.li`
   margin: 0 auto;
   width: 100%;
-  margin: 1vh 0 1vh 1.5vw;
+  margin: 10px 0 10px 1.5vw;
   font-size: calc(1vmin + 8px);
   display: flex;
   justify-content: center;

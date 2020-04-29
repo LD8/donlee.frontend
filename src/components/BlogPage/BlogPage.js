@@ -58,8 +58,9 @@ export const BlogPage = () => {
 };
 
 const SMyPosts = styled.div`
-  max-width: 1000px;
   width: 100%;
+  max-width: 1000px;
+
   .brief {
     margin: 3vh 0 5vh 0;
     h3 {
@@ -73,6 +74,7 @@ const SMyPosts = styled.div`
       }
     }
   }
+  
   .posts {
     display: flex;
     justify-content: center;
