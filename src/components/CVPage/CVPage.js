@@ -1,7 +1,6 @@
 /* eslint-disable no-multi-str */
 import React from "react";
 import styled from "styled-components";
-import Portrait from "../../assets/img/CV-portrait.jpeg";
 import { Skill } from "./Skill";
 import { Experience } from "./Experience";
 import { Education } from "./Education";
@@ -25,8 +24,7 @@ const experiences = [
     position: "User Experience and Web app Designer",
     description: null,
     bullets: [
-      "Turning hobby into a career, helping entrepreneurs building interactive web apps",
-      "based on their business models, design data structure",
+      "Turning hobby into a career, helping entrepreneurs building interactive web apps based on their business models, design data structure",
       "Develop web apps independently, mainly coding in Python, HTML, JavaScript, CSS",
     ],
     ending: null,
@@ -50,7 +48,7 @@ const experiences = [
   {
     company: "British Library",
     year: "May - November 2015",
-    website: "britishmuseum.com",
+    website: "bl.uk",
     position: "Volunteer Interpreter",
     description:
       "Interpreting and translating Chinese minority manuscripts mainly scores. Only after being interpreted in Pinyin can they be further studied.",
@@ -78,38 +76,38 @@ const experiences = [
 const educations = [
   {
     year: "2018 - 2020",
+    website: "interaction-design.org, freecodecamp.com",
     certificate: "Frontend Programmer Certificate, UI Design Practice",
     institution: "FreeCodeCamp, Interaction Design Foundation",
     location: "Online and self-taught",
-    website: "interaction-design.org, freecodecamp.com",
   },
   {
     year: "2014 - 2016",
+    website: "arts.ac.uk",
     certificate: "MA. in Art and Science",
     institution: "Central Saint Martins, University of Arts London",
     location: "London, UK",
-    website: "arts.ac.uk",
   },
   {
     year: "2013 - 2014",
+    website: "csvpa.com",
     certificate: "Pre MA.",
     institution: "Cambridge School of Visual and Performing Arts",
     location: "Cambridge, UK",
-    website: "csvpa.com",
   },
   {
     year: "2009 - 2011",
+    website: "shnu.edu.cn",
     certificate: "Certificate - Interior Design",
     institution: "Shanghai Normal university",
     location: "Shanghai, China",
-    website: "shnu.edu.cn",
   },
   {
     year: "2006 - 2010",
+    website: "tongji.edu.cn",
     certificate: "BSc. Intelligent building and Technology",
     institution: "Tongji University",
     location: "Shanghai, China",
-    website: "tongji.edu.cn",
   },
 ];
 
@@ -118,7 +116,10 @@ export const CVPage = () => {
     <SPaper id="SPaper">
       <section className="title">
         <div className="portrait-container">
-          <img src={Portrait} alt="Don Lee's portrait" />
+          <img
+            src={"https://donlee.online/static/img/CV-portrait.jpeg"}
+            alt="Don Lee's portrait"
+          />
         </div>
         <div className="info">
           <div className="general-info">
@@ -365,12 +366,12 @@ const SPaper = styled.div`
           border-style: none;
           a {
             display: inline-block;
-            :nth-child(2)::before,
-            :nth-child(3)::before {
-              content: "/";
-              padding: 0 5px;
-              color: grey;
-            }
+          }
+          :nth-child(2)::before,
+          :nth-child(3)::before {
+            content: "/";
+            padding: 0 5px;
+            color: grey;
           }
         }
       }

@@ -8,7 +8,6 @@ import { PortfolioPage } from "./components/PortfolioPage/PortfolioPage";
 import { BlogPage } from "./components/BlogPage/BlogPage";
 import { CVPage } from "./components/CVPage/CVPage";
 import { Route, Switch, useLocation } from "react-router-dom";
-import BG from "./assets/img/bg.jpg";
 
 const params = [
   ["about", <AboutPage />],
@@ -23,7 +22,7 @@ export default function Land() {
     <Switch>
       <Route path="/cv" component={CVPage} />
       <Route path="/">
-        <SContainer id="SContainer">
+        <SContainer id="SContainer" style={{backgroundImage: `url(${})`}}>
           <SBGDimmer darken={isLanding} id="SBGDimmer" />
           <Nav params={params} />
           <Main params={params} />
@@ -44,7 +43,7 @@ const SContainer = styled.div`
   overflow: hidden;
 
   background-color: var(--bg-color);
-  background-image: url(${BG}); /* not shown properly */
+  background-image: url("https://donlee.online/static/img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
