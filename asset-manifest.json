@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/donlee-frontend/static/css/main.c36ee124.chunk.css",
+    "main.js": "/donlee-frontend/static/js/main.777abc87.chunk.js",
+    "main.js.map": "/donlee-frontend/static/js/main.777abc87.chunk.js.map",
+    "runtime-main.js": "/donlee-frontend/static/js/runtime-main.0f6691d6.js",
+    "runtime-main.js.map": "/donlee-frontend/static/js/runtime-main.0f6691d6.js.map",
+    "static/js/2.d2bfb313.chunk.js": "/donlee-frontend/static/js/2.d2bfb313.chunk.js",
+    "static/js/2.d2bfb313.chunk.js.map": "/donlee-frontend/static/js/2.d2bfb313.chunk.js.map",
+    "index.html": "/donlee-frontend/index.html",
+    "precache-manifest.5e5ea5762a0a34c4d9cfc0977d387bd3.js": "/donlee-frontend/precache-manifest.5e5ea5762a0a34c4d9cfc0977d387bd3.js",
+    "service-worker.js": "/donlee-frontend/service-worker.js",
+    "static/css/main.c36ee124.chunk.css.map": "/donlee-frontend/static/css/main.c36ee124.chunk.css.map",
+    "static/js/2.d2bfb313.chunk.js.LICENSE.txt": "/donlee-frontend/static/js/2.d2bfb313.chunk.js.LICENSE.txt",
+    "static/media/At.svg": "/donlee-frontend/static/media/At.0044e167.svg",
+    "static/media/CV.svg": "/donlee-frontend/static/media/CV.21ae4cbe.svg",
+    "static/media/Github.svg": "/donlee-frontend/static/media/Github.1d27995f.svg",
+    "static/media/puff.svg": "/donlee-frontend/static/media/puff.27e2ef14.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f6691d6.js",
+    "static/js/2.d2bfb313.chunk.js",
+    "static/css/main.c36ee124.chunk.css",
+    "static/js/main.777abc87.chunk.js"
+  ]
+}
