@@ -1,6 +1,6 @@
 {
-  "homepage": "http://ld8.github.io/donlee.frontend",
-  "name": "donlee.frontend",
+  "homepage": "http://ld8.github.io/donlee-frontend",
+  "name": "donlee-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
