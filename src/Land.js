@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import Quote from "./components/Quote";
-import { AboutPage } from "./components/AboutPage/AboutPage";
-import { PortfolioPage } from "./components/PortfolioPage/PortfolioPage";
-import { BlogPage } from "./components/BlogPage/BlogPage";
+import AboutPage from "./components/AboutPage/AboutPage";
+import PortfolioPage from "./components/PortfolioPage/PortfolioPage";
+import BlogPage from "./components/BlogPage/BlogPage";
 import { CVPage } from "./components/CVPage/CVPage";
 import { Route, Switch, useLocation } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export default function Land() {
     <Switch>
       <Route path="/cv" component={CVPage} />
       <Route path="/">
-        <SContainer id="SContainer" style={{backgroundImage: `url(${})`}}>
+        <SContainer id="SContainer">
           <SBGDimmer darken={isLanding} id="SBGDimmer" />
           <Nav params={params} />
           <Main params={params} />

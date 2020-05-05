@@ -17,21 +17,21 @@ const skills = [
   { skill: "AutoCAD", percentage: 80 },
 ];
 
-export const AboutPage = () => {
+export default function AboutPage() {
   return (
     <>
       <SMyInfo id="SMyInfo">
         <section className="info-section">
           <AnimateImage
-            imageSource={"https://donlee.online/static/img/portrait.png"}
+            imageSource={"https://donlee.online/static/img/portrait-sm.png"}
             altText={"my portrait"}
           />
           <div className="my-info">
             <h2>Don Lee</h2>
             <h4>Full-stack Developer</h4>
             <p>
-              Passionate in developing software that improves our lives both
-              physically and mentally
+              Passionate in developing software that brings happiness and light
+              into our lives
             </p>
           </div>
         </section>
@@ -53,7 +53,7 @@ export const AboutPage = () => {
       <Footer />
     </>
   );
-};
+}
 
 const SMyInfo = styled.div`
   width: 100%;

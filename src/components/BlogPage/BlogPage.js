@@ -7,7 +7,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { APIBASE } from "../Const";
 import { Loading } from "../Loading";
 
-export const BlogPage = () => {
+export default function BlogPage() {
   const [posts, setPosts] = useState([]);
   const { path, url } = useRouteMatch();
 
@@ -25,7 +25,6 @@ export const BlogPage = () => {
       )
       .then((data) => {
         setPosts(data);
-        setPlaceHolder(<Loading />);
         setLoaded(true);
       })
       .catch((error) => console.log(error));
@@ -65,7 +64,7 @@ export const BlogPage = () => {
   ) : (
     placeHolder
   );
-};
+}
 
 const SMyPosts = styled.div`
   width: 100%;
