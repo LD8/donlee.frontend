@@ -23,7 +23,7 @@ export default function Main({ params }) {
                 key={param}
                 path={`/${param}`}
                 render={() => (
-                  <SPageContainer>
+                  <SPageContainer id="SPageContainer">
                     <div className="scroll-page">{Component}</div>
                   </SPageContainer>
                 )}
